@@ -1,31 +1,43 @@
 #!/bin/bash
+echo "applying dotfiles"
 
-# implement pacman.conf file edit to allow for parallel downloads and color
+# Function to create a backup of a file
+backup_item() {
+    local item=$1
+    local backup_count=1
+    local backup_item="$item.beforescript"
 
-echo "installing wanted applications"
-sudo pacman -Syu firefox kitty flatpak obsidian blender neovim zsh syncthing starship krita
+    while [ -e "$backup_item" ]; do
+        backup_item="${item}.beforescript$backup_count"
+        backup_count=$((backup_count + 1))
+    done
 
-echo "installing wanted flatpak applications"
-flatpak install com.spotify.Client com.discordapp.Discord net.ankiweb.Anki
+    mv "$item" "$backup_item"
+    echo "Backed up $item to $backup_item"
+}
 
-echo "installing yay"
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+create_symlink() {
+    local source=$1
+    local target=$2
 
-echo "installing fonts"
+    if [-e "$target" ]; then
+        echo "please backup the file first before overwriting it with a symlink"
+        exit 1
+    fi
+    ln -s "$source" "$target"
+    echo "Created a symbolic link for $source at $target"
+}
 
-echo "installing dotfiles"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-rm ~/.zshrc.beforescript
-mv ~/.zshrc ~/.zshrc.beforescript
-ln -s ~/Dotfiles/.zshrc ~/.zshrc
+backup_item "$HOME/.zshrc"
+create_symlink "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 
-rm ~/.zshenv.beforescript
-mv ~/.zshenv ~/.zshenv.beforescript
-ln -s ~/Dotfiles/.zshenv ~/.zshenv
+
+backup_item "$HOME/.zshenv"
+create_symlink "$SCRIPT_DIR/.zshenv" "$HOME/.zshenv"
 echo "zsh done"
 
-rm -r ~/.config/nvim.beforescript
-mv ~/.config/nvim ~/.config/nvim.beforescript
 ln -s ~/Dotfiles/nvim ~/.config/nvim
 echo "nvim done"
 
@@ -42,8 +54,3 @@ rm ~/.config/starship.toml.beforescript
 mv ~/.config/starship.toml ~/.config/starship.toml.beforescript
 ln -s ~/Dotfiles/starship.toml ~/.config/starship.toml
 echo "starship done"
-
-rm ~/config/dolphinrc.beforescript
-mv ~/.config/dolphinrc ~/config/dolphinrc.beforescript
-ln -s ~/Dotfiles/dolphinrc ~/.config/dolphinrc
-echo "dolfin done"
