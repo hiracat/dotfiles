@@ -26,7 +26,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "130"
 vim.opt.mouse = "a"
 
 vim.opt.shell = "/bin/zsh"
+vim.o.ignorecase = true
+
