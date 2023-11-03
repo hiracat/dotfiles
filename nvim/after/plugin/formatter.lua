@@ -18,41 +18,10 @@ require("formatter").setup({
 			require("formatter.filetypes.lua").stylua,
 
 			-- You can also define your own configuration
-			function()
-				-- Supports conditional formatting
-				if util.get_current_buffer_file_name() == "special.lua" then
-					return nil
-				end
-
-				-- Full specification of configurations is down below and in Vim help
-				-- files
-				return {
-					exe = "stylua",
-					args = {
-						"--search-parent-directories",
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-						"--",
-						"-",
-					},
-					stdin = true,
-				}
-			end,
 		},
-		c = {
 
-			function()
-				return {
-					exe = "clang-format",
-					args = {
-						"-assume-filename",
-						"-style=file",
-						util.escape_path(util.get_current_buffer_file_name()),
-					},
-					stdin = true,
-					try_node_modules = true,
-				}
-			end,
+		cpp = {
+			require("formatter.filetypes.cpp").clangformat,
 		},
 
 		-- Use the special "*" filetype for defining formatter configurations on

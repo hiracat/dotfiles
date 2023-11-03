@@ -1,14 +1,12 @@
 require("mason-tool-installer").setup({
-
-	-- a list of all tools you want to ensure are installed upon
-	-- start; they should be the names Mason uses for each tool
+  --a list of all tools you want to ensure are installed upon-- start; they should be the names Mason uses for each tool
 	ensure_installed = {
-		"stylua",
-		"cpptools",
-		"clang-format",
-		"clangd",
-		"lua-language-server",
-        "bash-language-server",
+		-- "stylua",
+		-- "cpptools",
+		-- "clang-format",
+		-- "clangd",
+		-- "lua-language-server",
+		-- "bash-language-server",
 	},
 
 	-- if set to true this will check each tool for updates. If updates
@@ -21,7 +19,7 @@ require("mason-tool-installer").setup({
 	-- will happen on startup. You can use :MasonToolsInstall or
 	-- :MasonToolsUpdate to install tools and check for updates.
 	-- Default: true
-	run_on_start = true,
+	run_on_start = false,
 
 	-- set a delay (in ms) before the installation starts. This is only
 	-- effective if run_on_start is set to true.
@@ -37,4 +35,3 @@ require("mason-tool-installer").setup({
 	-- Default: nil
 	debounce_hours = 1, -- at least 5 hours between attempts to install/update
 })
-
