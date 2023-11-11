@@ -68,11 +68,8 @@ local plugins = {
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "dev-v3",
-
-		-- Uncomment these if you want to manage LSP servers from neovim
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-
 		-- LSP Support
 		{
 			"neovim/nvim-lspconfig",
@@ -80,7 +77,6 @@ local plugins = {
 				{ "hrsh7th/cmp-nvim-lsp" },
 			},
 		},
-
 		-- Autocompletion
 		{
 			"hrsh7th/nvim-cmp",
