@@ -21,7 +21,7 @@ local plugins = {
 	{ "mfussenegger/nvim-dap" },
 	{ "theprimeagen/harpoon" },
 	{ "xiyaowong/transparent.nvim", lazy = false },
-	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{ "eandrju/cellular-automaton.nvim" },
 
 	-- tools
