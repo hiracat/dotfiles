@@ -7,6 +7,10 @@ local opts = {
 	silent = true,
 }
 
+-- Autocommands
+-- ##########################
+vim.cmd([[autocmd BufLeave * silent! write]])
+
 -- Native functionality remaps
 --############################
 
