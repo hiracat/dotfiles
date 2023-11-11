@@ -20,7 +20,7 @@ local plugins = {
 	-- apearance
 	{ "mfussenegger/nvim-dap" },
 	{ "theprimeagen/harpoon" },
-	{ "xiyaowong/transparent.nvim" },
+	{ "xiyaowong/transparent.nvim", lazy = false },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "eandrju/cellular-automaton.nvim" },
 

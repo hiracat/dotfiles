@@ -32,3 +32,8 @@ vim.opt.mouse = "a"
 vim.opt.shell = "/bin/zsh"
 vim.o.ignorecase = true
 
+vim.opt.list = true
+
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+vim.cmd("colorscheme catppuccin")
