@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 
 	-- colorschemes
-	{ "EdenEast/nightfox.nvim", priority = 1000 },
+	{ "EdenEast/nightfox.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "shaunsingh/nord.nvim", name = "nord", priority = 1000 },
 
