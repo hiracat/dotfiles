@@ -115,3 +115,8 @@ k("n", "<leader>gs", vim.cmd.Git, opts) --vim fugitive
 k("n", "<leader>u", vim.cmd.UndotreeToggle, opts)
 
 -- Cellular automation.nvim
+
+-- LSP
+k({ "n", "i" }, "<C-s>", function()
+	vim.lsp.buf.code_action({apply = true})
+end)

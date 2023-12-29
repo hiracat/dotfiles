@@ -16,6 +16,7 @@ local plugins = {
 	-- colorschemes
 	{ "EdenEast/nightfox.nvim", priority = 1000 },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "shaunsingh/nord.nvim", name = "nord", priority = 1000 },
 
 	-- apearance
 	{ "mfussenegger/nvim-dap" },

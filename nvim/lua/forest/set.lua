@@ -36,4 +36,6 @@ vim.opt.list = true
 
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
-vim.cmd("colorscheme catppuccin")
+
+vim.cmd("colorscheme carbonfox")
+vim.cmd("colorscheme carbonfox")
