@@ -3,3 +3,5 @@
 	name = forest lehrman
 [init]
 	defaultBranch = master
+[credential]
+	helper = store
