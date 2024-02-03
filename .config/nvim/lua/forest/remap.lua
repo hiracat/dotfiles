@@ -33,7 +33,7 @@ k("n", "N", "Nzzzv", opts)
 
 k("n", "J", "mzJ`z", opts) --keeps the mose in the same place and appends the next line onto the current like with a space
 
-k("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts) -- search and replace the current word
+k("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts) -- search and replace the current word
 
 -- window stuff
 -- ###########
@@ -73,7 +73,9 @@ k("n", "<leader>j", ":lprev<CR>zz", opts)
 
 -- Telescope
 local builtin = require("telescope.builtin")
-k("n", "<leader>ff", builtin.find_files, {}, opts) --file find
+k("n", "<leader>ff", function()
+	builtin.find_files({ hidden = true })
+end, {}, opts) --file find
 k("n", "<leader>fs", builtin.live_grep, {}, opts) --file search
 k("n", "<leader>fo", builtin.buffers, {}, opts) --file open
 

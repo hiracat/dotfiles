@@ -17,6 +17,7 @@ local plugins = {
 	{ "EdenEast/nightfox.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "shaunsingh/nord.nvim", name = "nord", priority = 1000 },
+    { "rose-pine/neovim", name = "rose-pine" },
 
 	-- apearance
 	{ "mfussenegger/nvim-dap" },
