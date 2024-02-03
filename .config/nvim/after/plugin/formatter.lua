@@ -20,6 +20,12 @@ require("formatter").setup({
 			-- You can also define your own configuration
 		},
 
+		sh = {
+			-- "formatter.filetypes.any" defines default configurations for any
+			-- filetype
+			require("formatter.filetypes.sh").shfmt,
+		},
+
 		cpp = {
 			require("formatter.filetypes.cpp").clangformat,
 		},
