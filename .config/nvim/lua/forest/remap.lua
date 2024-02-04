@@ -73,13 +73,22 @@ k("n", "<leader>j", ":lprev<CR>zz", opts)
 
 -- Telescope
 local builtin = require("telescope.builtin")
+
 k("n", "<leader>ff", function()
 	builtin.find_files({ hidden = true })
 end, {}, opts) --file find
-k("n", "<leader>fs", builtin.live_grep, {}, opts) --file search
-k("n", "<leader>fo", builtin.buffers, {}, opts) --file open
 
-k("n", "<leader>fh", builtin.help_tags, {}, opts) --file help
+k("n", "<leader>fs", function()
+	builtin.live_grep({ hidden = true })
+end, {}, opts) --file search
+
+k("n", "<leader>fo", function()
+	builtin.buffers({ hidden = true })
+end, {}, opts) --file open
+
+k("n", "<leader>fh", function()
+	builtin.help_tags({ hidden = true })
+end, {}, opts) --file help
 
 -- Dap
 k("n", "<leader>dut", ":lua require'dapui'.toggle()<CR>", opts) --dap ui toggle
