@@ -1,7 +1,7 @@
 #!/bin/sh
 
 swww_schedule() {
-   echo "swww img $1" | at -q c "$2"
+    echo "swww img $1 && cp \$(echo \"\$(swww query)\" | awk -F'image: ' '{print \$2}') ~/.cache/current_wallpaper" | at -q c "$2"
 }
 
 select_random_image() {
@@ -11,7 +11,7 @@ select_random_image() {
 
     # if folder path is a folder
     if [ ! -d "$folder_path" ]; then
-        echo "Folder not found: $folder_path, please provide a wallpapers folder">&2
+        echo "Folder not found: $folder_path, please provide a wallpapers folder" >&2
         return 1
     fi
 
@@ -20,7 +20,7 @@ select_random_image() {
 
     # check if there are any files in the folder
     if [ -z "$files" ]; then
-        echo "No files found in $folder_path">&2
+        echo "No files found in $folder_path" >&2
         return 1
     fi
 
@@ -29,13 +29,13 @@ select_random_image() {
 
     # debug
     echo "current image: $current_image" >&2
-    echo "new random image: $new_random_image">&2
+    echo "new random image: $new_random_image" >&2
 
     # select a NEW random image
     while [ "$current_image" = "$new_random_image" ]; do
         new_random_image=$(echo "$files" | shuf -n 1)
-        echo "current image in loop: $current_image">&2
-        echo "new random image in loop: $new_random_image">&2
+        echo "current image in loop: $current_image" >&2
+        echo "new random image in loop: $new_random_image" >&2
     done
     # output the selected image
     echo "$new_random_image"
@@ -51,3 +51,4 @@ atq | awk '$6 = "c" {print $1}' | xargs atrm
 for hour in {8..22}; do
     swww_schedule "$(select_random_image)" "${hour}:00"
 done
+cp $(echo "$(swww query)" | awk -F'image: ' '{print $2}') ~/.cache/current_wallpaper
