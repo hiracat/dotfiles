@@ -1,12 +1,13 @@
 @import "catppuccin.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0);
+    background-color: transparent;
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
@@ -109,7 +110,7 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @lavender;
 }
 
 #battery {
@@ -144,12 +145,12 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: @green;
     color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: @mauve;
 }
 
 #disk {
@@ -161,15 +162,15 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @sapphire;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: @red;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: @flamingo;
     color: #000000;
 }
 
@@ -202,7 +203,7 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: @peach;
 }
 
 #temperature.critical {
@@ -210,7 +211,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @surface2;
 }
 
 #tray > .passive {
