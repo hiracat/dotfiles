@@ -55,7 +55,6 @@ k({ "n", "v" }, "<leader>d", [["_d]], opts) --allows more deleting to void regie
 
 -- external stuff
 -- ##############
-
 k("n", "<leader>mx", ":!chmod +x %<CR>", opts) --make executable
 
 -- stuff i dont understand
@@ -65,6 +64,8 @@ k("n", "<leader>mx", ":!chmod +x %<CR>", opts) --make executable
 
 k("n", "<C-k>", ":cnext<CR>zz", opts) --quick fix list navigation
 k("n", "<C-j>", ":cprev<CR>zz", opts)
+k("n", "<C-q>", ":cclose<CR>zz", opts)
+
 k("n", "<leader>k", ":lnext<CR>zz", opts)
 k("n", "<leader>j", ":lprev<CR>zz", opts)
 

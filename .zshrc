@@ -12,6 +12,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 
 export PATH=$PATH:/home/forest/.spicetify
 alias nv='nvim'
