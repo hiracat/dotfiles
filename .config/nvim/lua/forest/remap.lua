@@ -33,8 +33,6 @@ k("n", "N", "Nzzzv", opts)
 
 k("n", "J", "mzJ`z", opts) --keeps the mose in the same place and appends the next line onto the current like with a space
 
-k("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts) -- search and replace the current word
-
 -- window stuff
 -- ###########
 
@@ -47,7 +45,6 @@ k("n", "<A-l>", "<C-w>l", opts)
 -- ##############
 
 k("x", "<leader>p", [["_dP]]) --allows you to paste over a highlighted word without the highlighted word replacing the current word
--- next greatest remap ever : asbjornHaland
 k({ "n", "v" }, "<leader>y", [["+y]], opts) --allows cpying into the system register with leader y
 k("n", "<leader>Y", [["+Y]], opts)
 
@@ -62,12 +59,13 @@ k("n", "<leader>mx", ":!chmod +x %<CR>", opts) --make executable
 
 -- k("n", "Q", "<nop>", opts) --disables Q which does somethign wierd
 
-k("n", "<C-k>", ":cnext<CR>zz", opts) --quick fix list navigation
-k("n", "<C-j>", ":cprev<CR>zz", opts)
+k("n", "<C-j>", ":cnext<CR>zz", opts) --quick fix list navigation
+k("n", "<C-k>", ":cprev<CR>zz", opts)
+
 k("n", "<C-q>", ":cclose<CR>zz", opts)
 
-k("n", "<leader>k", ":lnext<CR>zz", opts)
-k("n", "<leader>j", ":lprev<CR>zz", opts)
+k("n", "<leader>j", ":lnext<CR>zz", opts)
+k("n", "<leader>k", ":lprev<CR>zz", opts)
 
 -- Plugin Remaps
 -- #############
@@ -103,18 +101,18 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>mf", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<A-e>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<C-f>", function()
+vim.keymap.set("n", "<A-f>", function()
 	ui.nav_file(1)
 end)
-vim.keymap.set("n", "<C-d>", function()
+vim.keymap.set("n", "<A-d>", function()
 	ui.nav_file(2)
 end)
-vim.keymap.set("n", "<C-s>", function()
+vim.keymap.set("n", "<A-s>", function()
 	ui.nav_file(3)
 end)
-vim.keymap.set("n", "<C-a>", function()
+vim.keymap.set("n", "<A-a>", function()
 	ui.nav_file(4)
 end)
 
@@ -139,3 +137,20 @@ k("n", "<leader>u", vim.cmd.UndotreeToggle, opts)
 k({ "n", "i" }, "<C-s>", function()
 	vim.lsp.buf.code_action({ apply = true })
 end)
+
+k("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+
+k("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+k("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+k("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+k("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+k("n", "ge", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+k("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+
+k("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+
+k("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+k("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+k("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+
+k({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)

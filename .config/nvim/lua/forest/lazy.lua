@@ -17,7 +17,7 @@ local plugins = {
 	{ "EdenEast/nightfox.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "shaunsingh/nord.nvim", name = "nord", priority = 1000 },
-    { "rose-pine/neovim", name = "rose-pine" },
+	{ "rose-pine/neovim", name = "rose-pine" },
 
 	-- apearance
 	{ "mfussenegger/nvim-dap" },
@@ -34,11 +34,13 @@ local plugins = {
 	{ "mhartington/formatter.nvim" },
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{ "ThePrimeagen/vim-be-good" },
+	{ "folke/neodev.nvim" },
 
 	-- long things
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },

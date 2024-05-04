@@ -1,5 +1,12 @@
-local lsp_zero = require("lsp-zero")
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local default_setup = function(server)
+	require("lspconfig")[server].setup({
+		capabilities = lsp_capabilities,
+	})
+end
+
+local lsp_zero = require("lsp-zero")
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 

@@ -19,4 +19,5 @@ alias nv='nvim'
 alias ls='ls --color=auto'
 source ~/vulkan/1.3.250.1/setup-env.sh
 clear
-neofetch
+eval "$(atuin init zsh)"
+fastfetch

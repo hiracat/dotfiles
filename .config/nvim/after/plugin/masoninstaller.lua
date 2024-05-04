@@ -1,5 +1,5 @@
 require("mason-tool-installer").setup({
-  --a list of all tools you want to ensure are installed upon-- start; they should be the names Mason uses for each tool
+	--a list of all tools you want to ensure are installed upon-- start; they should be the names Mason uses for each tool
 	ensure_installed = {
 		-- "stylua",
 		-- "cpptools",
@@ -33,5 +33,5 @@ require("mason-tool-installer").setup({
 	-- This is only relevant when you are using 'run_on_start'. It has no
 	-- effect when running manually via ':MasonToolsInstall' etc....
 	-- Default: nil
-	debounce_hours = 1, -- at least 5 hours between attempts to install/update
+	debounce_hours = 5, -- at least 5 hours between attempts to install/update
 })
